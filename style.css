@@ -203,6 +203,10 @@ button {
     gap: 20px;
 }
 
+.nome-da-tarefa > h2 {
+    font-size: clamp(8px, 2vw + 1rem, 20px);;
+}
+
 .controlar-tarefa {
     display: flex;
     justify-content: center;
@@ -220,3 +224,12 @@ button {
     color: var(--destaque);
 }
 
+.lista-de-tarefas {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.lista-de-tarefas > li {
+    margin-bottom: 20px;
+}
