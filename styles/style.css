@@ -10,6 +10,7 @@
     --verde: #63B159;
 
     --cor-adicionar-tarefa: var(--cinza);
+    --cor-scrollbar-handle : var(--cinza)
 }
 
 .light-mode:root {
@@ -21,6 +22,7 @@
     --verde: #09814A;
 
     --cor-adicionar-tarefa: var(--bg-color);
+    --cor-scrollbar-handle: #12152B;
 }
 
 body {
@@ -40,6 +42,19 @@ body {
     transition: all 0.3s ease;
 }
 
+a {
+    color: var(--destaque);
+}
+
+::-webkit-scrollbar {
+    width: .5vw;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--cor-scrollbar-handle);
+}
 .buttons-container {
     width: 80vw;
     height: clamp(60px, 100px, 190px);
@@ -90,12 +105,12 @@ button {
 }
 
 .titulo-frase > p {
-    font-size: clamp(10px, 2vw + 1rem, 20px);
+    font-size: clamp(2px, 1vw + 0.2rem, 20px);
 }
 
 .bar {
     width: 100%;
-    height: 8vh;
+    height: clamp(70px, 8vh, 9vh);
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -125,7 +140,7 @@ button {
     outline: none;
     border: none;
     width: 48px;
-    height: 8vh;
+    height: min(60px, 8vh);;
     margin-right: 10px;
     font-size: 2em;
 }
@@ -158,16 +173,15 @@ button {
     gap: 20px;
 }
 
-.tarefa {
+.tarefa, .tarefa-concluida {
     background-color: var(--cor-adicionar-tarefa);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
     border-radius: 3px;
     width: 100%;
-    height: 8vh;
+    height: clamp(70px, 8vh, 9vh);
     display: flex;
     justify-content: space-between;
     gap: 20px;
-
 }
 
 .tarefa_n {
@@ -175,11 +189,20 @@ button {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
     border-radius: 3px;
     width: 100%;
-    height: 8vh;
+    height: clamp(70px, 8vh, 9vh);
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    animation: pop 1s;
+    animation: pop 1s ease;
+}
+
+@keyframes pop_in_small {
+    from{
+        transform: translateY(5%);
+    }
+    to {
+        transform: translateY(0%)
+    }
 }
 
 @keyframes pop {
@@ -190,6 +213,16 @@ button {
         transform: translateX(0%);
     }
 }
+
+@keyframes fade-out {
+    50% {
+        opacity: 100%;
+    }
+    100% {
+        opacity: 0%;
+    }
+}
+
 .tarefa-feita{
     width: 40px;
     height: 40px;
@@ -198,6 +231,12 @@ button {
     font-size: 2rem;
 }
 
+.tarefa-concluida {
+    border: 2px solid var(--verde);
+    text-decoration: line-through;
+    color: rgb(116, 116, 116);
+    opacity: 20%;
+}
 
 #check:hover{
     scale: 1.2;
@@ -225,9 +264,10 @@ button {
     gap: 20px;
 }
 
-.nome-da-tarefa > h2 {
-    font-size: clamp(8px, 2vw + 1rem, 20px);;
+.titulo-tarefa {
+    font-size: clamp(8px, 2vw + 1rem, 20px);
 }
+
 
 .controlar-tarefa {
     display: flex;

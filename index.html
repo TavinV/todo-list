@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seus afazeres</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
     <script src="https://kit.fontawesome.com/06a72cc7b8.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -15,22 +15,23 @@
         <button>
             <i id="open-github" class="fa-brands fa-github"></i>
         </button>
+
     </div>
 
     <div class="wrapper-novas-tarefas">
         <div class="titulo-frase">
             <span class="title">Lista de afazeres</span>
-            <p>Frase motivacional aleatória!</p>
+            <p id="frase_motivacional">Frase motivacional aleatória!</p>
         </div>
         <div class="bar">
-            <input id='add_input' type="text" placeholder="Escreva a sua próxima tarefa e aperte Enter para adiciona-la!">
+            <input id='add_input' type="text" placeholder="Escreva a sua próxima tarefa!">
             <button id="add_button"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
         <div class="tarefas">
             <ul class="lista-de-tarefas"></ul>            
         </div>
     </div>
-
-    <script src="main.js"></script>
+    <script src="src/main.js"></script>
+    <script src="src/frases.js"></script>
 </body>
 </html>
